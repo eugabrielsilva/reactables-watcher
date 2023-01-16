@@ -1,0 +1,71 @@
+#reactables-watcher {
+    position: fixed;
+    right: 0;
+    top: 0;
+    height: 100vh;
+    background-color: #fafafa;
+    width: 300px;
+    font-family: Calibri, sans-serif;
+    overflow-y: auto;
+    word-break: break-all;
+    font-weight: normal;
+    font-size: 16px;
+    display: none;
+    z-index: 9999999999999;
+    user-select: none;
+
+    &:after {
+        content: '';
+        top: 0;
+        background-color: rgba(128, 128, 128, 0.3);
+        position: absolute;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        cursor: ew-resize;
+    }
+
+    &.show {
+        display: block;
+    }
+
+    .reactables-watcher-title {
+        background-color: gainsboro;
+        border-bottom: 1px solid gray;
+        padding: 5px;
+        color: dimgray;
+        cursor: pointer;
+
+        &:hover {
+            background-color: #a8a8a8;
+        }
+    }
+
+    .reactables-watcher-list {
+        padding: 5px;
+        border-bottom: 1px solid gray;
+
+        div {
+            border-bottom: 1px solid lightgray;
+            padding: 2px;
+            user-select: text;
+
+            &:last-child {
+                border-bottom: none;
+            }
+
+            strong {
+                font-weight: normal;
+                color: dimgray;
+            }
+        }
+    }
+}
+
+.reactables-watcher-focus {
+    position: absolute;
+    z-index: 9999999999999;
+    pointer-events: none;
+    background: rgba(126, 183, 253, 0.3);
+    border: 1px solid rgba(126, 183, 253, 0.7);
+}

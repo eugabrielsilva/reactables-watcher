@@ -1,0 +1,69 @@
+#reactables-watcher {
+  position: fixed;
+  right: 0;
+  top: 0;
+  height: 100vh;
+  background-color: #fafafa;
+  width: 300px;
+  font-family: Calibri, sans-serif;
+  overflow-y: auto;
+  word-break: break-all;
+  font-weight: normal;
+  font-size: 16px;
+  display: none;
+  z-index: 9999999999999;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+}
+#reactables-watcher:after {
+  content: "";
+  top: 0;
+  background-color: rgba(128, 128, 128, 0.3);
+  position: absolute;
+  left: 0;
+  width: 2px;
+  height: 100%;
+  cursor: ew-resize;
+}
+#reactables-watcher.show {
+  display: block;
+}
+#reactables-watcher .reactables-watcher-title {
+  background-color: gainsboro;
+  border-bottom: 1px solid gray;
+  padding: 5px;
+  color: dimgray;
+  cursor: pointer;
+}
+#reactables-watcher .reactables-watcher-title:hover {
+  background-color: #a8a8a8;
+}
+#reactables-watcher .reactables-watcher-list {
+  padding: 5px;
+  border-bottom: 1px solid gray;
+}
+#reactables-watcher .reactables-watcher-list div {
+  border-bottom: 1px solid lightgray;
+  padding: 2px;
+  -webkit-user-select: text;
+     -moz-user-select: text;
+      -ms-user-select: text;
+          user-select: text;
+}
+#reactables-watcher .reactables-watcher-list div:last-child {
+  border-bottom: none;
+}
+#reactables-watcher .reactables-watcher-list div strong {
+  font-weight: normal;
+  color: dimgray;
+}
+
+.reactables-watcher-focus {
+  position: absolute;
+  z-index: 9999999999999;
+  pointer-events: none;
+  background: rgba(126, 183, 253, 0.3);
+  border: 1px solid rgba(126, 183, 253, 0.7);
+}
