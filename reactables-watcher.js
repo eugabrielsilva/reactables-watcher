@@ -45,6 +45,7 @@ ReactablesWatcher.init = function() {
 
             componentList.push({
                 name: '#' + key + ' ' + component.name,
+                id: component.id,
                 el: component.el,
                 data: component.data
             });
@@ -76,6 +77,7 @@ ReactablesWatcher.init = function() {
                 let titleDiv = document.createElement('div');
                 titleDiv.className = 'reactables-watcher-title';
                 titleDiv.innerText = component.name;
+                titleDiv.title = 'id: ' + component.id;
 
                 // Focus indicator
                 let focusDiv = document.createElement('div');
