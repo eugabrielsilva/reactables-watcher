@@ -6,7 +6,7 @@ ReactablesWatcher.toggle = function() {
 }
 
 ReactablesWatcher.init = function() {
-    if(document.reactables) {
+    if(window.reactables) {
 
         // Inject watcher panel
         let watcherPanel = document.createElement('div');
@@ -41,7 +41,7 @@ ReactablesWatcher.init = function() {
 
         // Parse components
         let componentList = [];
-        document.reactables.all().forEach((component, key) => {
+        window.reactables.all().forEach((component, key) => {
 
             componentList.push({
                 name: '#' + key + ' ' + component.name,
