@@ -2,7 +2,7 @@ const ReactablesWatcher = {};
 
 ReactablesWatcher.toggle = function() {
     let watcherPanel = document.getElementById('reactables-watcher');
-    if(watcherPanel) watcherPanel.classList.toggle('show');
+    if(watcherPanel) watcherPanel.classList.toggle('reactables-watcher-show');
 }
 
 ReactablesWatcher.init = function() {
@@ -47,7 +47,8 @@ ReactablesWatcher.init = function() {
                 name: '#' + key + ' ' + component.name,
                 id: component.id,
                 el: component.el,
-                data: component.data
+                data: component.data,
+                hovered: false
             });
 
             buildComponentList();
@@ -57,6 +58,19 @@ ReactablesWatcher.init = function() {
                 buildComponentList();
             });
 
+            component.el.addEventListener('mouseover', function() {
+                if(watcherPanel.classList.contains('reactables-watcher-show') && !component.hovered) {
+                    watcherPanel.children[key].classList.add('reactables-watcher-hovered');
+                    component.hovered = true;
+                }
+            });
+
+            component.el.addEventListener('mouseleave', function() {
+                if(watcherPanel.classList.contains('reactables-watcher-show') && component.hovered) {
+                    watcherPanel.children[key].classList.remove('reactables-watcher-hovered');
+                    component.hovered = false;
+                }
+            });
         });
 
         // Get element offset
@@ -73,6 +87,10 @@ ReactablesWatcher.init = function() {
             watcherPanel.innerHTML = '';
 
             componentList.forEach((component, key) => {
+                // Component wrapper
+                let wrapperDiv = document.createElement('div');
+                wrapperDiv.className = 'reactables-watcher-wrapper';
+
                 // Component title
                 let titleDiv = document.createElement('div');
                 titleDiv.className = 'reactables-watcher-title';
@@ -107,8 +125,9 @@ ReactablesWatcher.init = function() {
                     listDiv.appendChild(item);
                 }
 
-                watcherPanel.appendChild(titleDiv);
-                watcherPanel.appendChild(listDiv);
+                wrapperDiv.appendChild(titleDiv);
+                wrapperDiv.appendChild(listDiv);
+                watcherPanel.appendChild(wrapperDiv);
             });
         }
 
@@ -127,7 +146,7 @@ window.addEventListener('message', event => {
     try {
         eventData = JSON.parse(eventData);
     } catch(e) {
-        // Ignore
+        return;
     }
 
     if(eventData.command === 'reactables-watcher-toggle') {

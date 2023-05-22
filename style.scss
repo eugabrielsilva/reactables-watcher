@@ -5,7 +5,7 @@
     height: 100vh;
     background-color: #fafafa;
     width: 300px;
-    font-family: Calibri, sans-serif;
+    font-family: 'Calibri', 'Segoe UI', 'Tahoma', sans-serif;
     overflow-y: auto;
     word-break: break-all;
     font-weight: normal;
@@ -25,38 +25,47 @@
         cursor: col-resize;
     }
 
-    &.show {
+    &.reactables-watcher-show {
         display: block;
     }
 
-    .reactables-watcher-title {
-        background-color: gainsboro;
-        border-bottom: 1px solid gray;
-        padding: 5px;
-        color: dimgray;
-        cursor: pointer;
-
-        &:hover {
-            background-color: #a8a8a8;
-        }
-    }
-
-    .reactables-watcher-list {
-        padding: 5px;
-        border-bottom: 1px solid gray;
-
-        div {
-            border-bottom: 1px solid lightgray;
-            padding: 2px;
-            user-select: text;
-
-            &:last-child {
-                border-bottom: none;
+    .reactables-watcher-wrapper {
+        &.reactables-watcher-hovered {
+            .reactables-watcher-title {
+                background-color: gray;
+                color: white;
             }
+        }
 
-            strong {
-                font-weight: normal;
-                color: dimgray;
+        .reactables-watcher-title {
+            background-color: gainsboro;
+            border-bottom: 1px solid gray;
+            padding: 5px;
+            color: dimgray;
+            cursor: pointer;
+
+            &:hover {
+                background-color: #a8a8a8;
+            }
+        }
+
+        .reactables-watcher-list {
+            padding: 5px;
+            border-bottom: 1px solid gray;
+
+            div {
+                border-bottom: 1px solid lightgray;
+                padding: 2px;
+                user-select: text;
+
+                &:last-child {
+                    border-bottom: none;
+                }
+
+                strong {
+                    font-weight: normal;
+                    color: dimgray;
+                }
             }
         }
     }
