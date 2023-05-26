@@ -1,7 +1,7 @@
 if(window.top === window) {
     let inspectorScript = document.createElement('script');
     inspectorScript.type = 'text/javascript';
-    inspectorScript.src = chrome.extension.getURL('/reactables-watcher.js');
+    inspectorScript.src = chrome.runtime.getURL('/reactables-watcher.js');
     document.head.appendChild(inspectorScript);
 
     if('chrome' in window) {

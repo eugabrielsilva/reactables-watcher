@@ -1,24 +1,25 @@
 {
     "name": "Reactables Watcher",
     "version": "0.0.1",
-    "manifest_version": 2,
+    "manifest_version": 3,
     "description": "Glowie Reactables property watcher",
     "homepage_url": "https://glowie.tk/reactables",
     "icons": {
         "128": "icon.png"
     },
     "background": {
-        "scripts": [
-            "background.js"
-        ],
-        "persistent": true
+        "service_worker": "background.js"
     },
-    "browser_action": {
+    "action": {
         "default_title": "Reactables Watcher",
         "default_icon": {
             "128": "icon.png"
         }
     },
+    "host_permissions": [
+        "*://*/*",
+        "file:///*"
+    ],
     "content_scripts": [
         {
             "matches": [
@@ -34,10 +35,17 @@
         }
     ],
     "web_accessible_resources": [
-        "reactables-watcher.js"
+        {
+            "resources": [
+                "reactables-watcher.js"
+            ],
+            "matches": [
+                "*://*/*",
+                "file:///*"
+            ]
+        }
     ],
     "permissions": [
-        "tabs",
-        "<all_urls>"
+        "tabs"
     ]
 }
