@@ -1,4 +1,11 @@
 if(window.top === window) {
+    // Viewer
+    let viewerScript = document.createElement('script');
+    viewerScript.type = 'text/javascript';
+    viewerScript.src = chrome.extension.getURL('/jsonview.js');
+    document.head.appendChild(viewerScript);
+
+    // Inspector
     let inspectorScript = document.createElement('script');
     inspectorScript.type = 'text/javascript';
     inspectorScript.src = chrome.extension.getURL('/reactables-watcher.js');

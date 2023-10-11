@@ -34,7 +34,8 @@
         }
     ],
     "web_accessible_resources": [
-        "reactables-watcher.js"
+        "reactables-watcher.js",
+        "jsonview.js"
     ],
     "permissions": [
         "tabs",

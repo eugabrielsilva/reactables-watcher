@@ -43,23 +43,15 @@
 #reactables-watcher .reactables-watcher-wrapper .reactables-watcher-title:hover {
   background-color: #a8a8a8;
 }
-#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list {
-  padding: 5px;
-  border-bottom: 1px solid gray;
+#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list .json-container {
+  background-color: transparent;
+  font-family: "Calibri", "Segoe UI", "Tahoma", sans-serif;
 }
-#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list div {
-  border-bottom: 1px solid lightgray;
-  padding: 2px;
-  -webkit-user-select: text;
-     -moz-user-select: text;
-          user-select: text;
+#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list .json-container .line {
+  flex-wrap: wrap;
 }
-#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list div:last-child {
-  border-bottom: none;
-}
-#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list div strong {
-  font-weight: normal;
-  color: dimgray;
+#reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list .json-container .json-key {
+  margin-right: 0;
 }
 
 .reactables-watcher-focus {
