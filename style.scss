@@ -50,21 +50,16 @@
         }
 
         .reactables-watcher-list {
-            padding: 5px;
-            border-bottom: 1px solid gray;
+            .json-container {
+                background-color: transparent;
+                font-family: 'Calibri', 'Segoe UI', 'Tahoma', sans-serif;
 
-            div {
-                border-bottom: 1px solid lightgray;
-                padding: 2px;
-                user-select: text;
-
-                &:last-child {
-                    border-bottom: none;
+                .line {
+                    flex-wrap: wrap;
                 }
 
-                strong {
-                    font-weight: normal;
-                    color: dimgray;
+                .json-key {
+                    margin-right: 0;
                 }
             }
         }

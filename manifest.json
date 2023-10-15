@@ -1,6 +1,6 @@
 {
     "name": "Reactables Watcher",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "manifest_version": 3,
     "description": "Glowie Reactables property watcher",
     "homepage_url": "https://glowie.tk/reactables",
@@ -27,7 +27,8 @@
                 "file:///*"
             ],
             "js": [
-                "inject.js"
+                "inject.js",
+                "jsonview.js"
             ],
             "css": [
                 "style.css"
@@ -37,7 +38,8 @@
     "web_accessible_resources": [
         {
             "resources": [
-                "reactables-watcher.js"
+                "reactables-watcher.js",
+                "jsonview.js"
             ],
             "matches": [
                 "*://*/*",
