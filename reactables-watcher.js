@@ -119,7 +119,7 @@ ReactablesWatcher.init = function() {
                 listDiv.className = 'reactables-watcher-list';
                 let tree = jsonview.create(component.data);
                 jsonview.render(tree, listDiv);
-                jsonview.expand(tree);
+                jsonview.toggleNode(tree);
 
                 wrapperDiv.appendChild(titleDiv);
                 wrapperDiv.appendChild(listDiv);
