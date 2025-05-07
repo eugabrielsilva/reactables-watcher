@@ -1,9 +1,9 @@
 {
     "name": "Reactables Watcher",
-    "version": "0.0.2",
+    "version": "0.0.3",
     "manifest_version": 3,
-    "description": "Glowie Reactables property watcher",
-    "homepage_url": "https://glowie.tk/reactables",
+    "description": "Glowie Reactables props watcher",
+    "homepage_url": "https://github.com/eugabrielsilva/reactables-watcher",
     "icons": {
         "128": "icon.png"
     },

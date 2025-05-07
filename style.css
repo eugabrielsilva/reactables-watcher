@@ -5,13 +5,13 @@
   height: 100vh;
   background-color: #fafafa;
   width: 300px;
-  font-family: "Calibri", "Segoe UI", "Tahoma", sans-serif;
+  font-family: "Calibri", "Ubuntu", "Segoe UI", "Tahoma", sans-serif;
   overflow-y: auto;
   word-break: break-all;
   font-weight: normal;
   font-size: 16px;
   display: none;
-  z-index: 9999999999999;
+  z-index: 2147483647;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
@@ -45,7 +45,7 @@
 }
 #reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list .json-container {
   background-color: transparent;
-  font-family: "Calibri", "Segoe UI", "Tahoma", sans-serif;
+  font-family: "Calibri", "Ubuntu", "Segoe UI", "Tahoma", sans-serif;
 }
 #reactables-watcher .reactables-watcher-wrapper .reactables-watcher-list .json-container .line {
   flex-wrap: wrap;
@@ -56,7 +56,7 @@
 
 .reactables-watcher-focus {
   position: absolute;
-  z-index: 9999999999999;
+  z-index: 2147483646;
   pointer-events: none;
   background: rgba(126, 183, 253, 0.3);
   border: 1px solid rgba(126, 183, 253, 0.7);

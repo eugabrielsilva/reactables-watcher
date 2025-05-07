@@ -1,5 +1,5 @@
 # Reactables Watcher
-Reactables Watcher is an extension for **Google Chrome** that lets you inspect every property from all [Glowie Reactables](https://github.com/glowieframework/glowie-reactables) components used in a webpage.
+Reactables Watcher is an extension for **Google Chrome** that lets you inspect every property from all [Glowie Reactables](https://github.com/glowieframework/reactables) components used in a webpage.
 
 The inspector panel updates property values whenever your component is refreshed.
 
@@ -16,5 +16,5 @@ Open a webpage that uses Reactables, then click the extension icon in the browse
 <img src="https://i.imgur.com/rX7nvhK.png">
 
 ### Credits
-Developed by [Gabriel Silva](https://eugabrielsilva.tk), inspired by [ng-inspector](https://github.com/rev087/ng-inspector).\
+Developed by [Gabriel Silva](https://gabrielsilva.dev.br), inspired by [ng-inspector](https://github.com/rev087/ng-inspector).\
 Special thanks to [Pavlo Hrabovets](https://github.com/pgrabovets/json-view) for the json-view library.
