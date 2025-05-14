@@ -1,21 +1,39 @@
 if(window.top === window) {
-    // Viewer
-    let viewerScript = document.createElement('script');
-    viewerScript.type = 'text/javascript';
-    viewerScript.src = chrome.runtime.getURL('/jsonview.js');
-    document.head.appendChild(viewerScript);
+    // Inject the Reactables watcher into page context
+    const watcherScript = document.createElement('script');
+    watcherScript.src = chrome.runtime.getURL('reactables-watcher.js');
+    document.head.appendChild(watcherScript);
 
-    // Inspector
-    let inspectorScript = document.createElement('script');
-    inspectorScript.type = 'text/javascript';
-    inspectorScript.src = chrome.runtime.getURL('/reactables-watcher.js');
-    document.head.appendChild(inspectorScript);
+    // Listen for data posted from reactables-watcher.js
+    window.addEventListener('message', event => {
+        // Only accept messages from our injected script
+        if(event.source !== window || event.data?.source !== 'reactables-watcher') return;
 
-    if('chrome' in window) {
-        chrome.runtime.onMessage.addListener(function(message, sender) {
-            if(message.command && message.command === 'reactables-watcher-toggle') {
-                window.postMessage(JSON.stringify(message), window.location.origin);
-            }
-        });
-    }
+        if(event.data.command === 'reactablesData') {
+            // Forward the components data to background/devtools
+            chrome.runtime.sendMessage({
+                command: 'reactablesData',
+                payload: event.data.payload
+            });
+        }
+    });
+
+    // Listen for requests from background/devtools
+    chrome.runtime.onMessage.addListener((message) => {
+        if(message.command === 'getReactablesData') {
+            // Ask the page script to re-send its data
+            window.postMessage({
+                source: 'reactables-devtools',
+                command: 'getReactablesData'
+            }, window.location.origin);
+        }
+
+        if(message.command === 'refreshAllReactablesData') {
+            // Ask the page script to refresh all components
+            window.postMessage({
+                source: 'reactables-devtools',
+                command: 'refreshAllReactablesData'
+            }, window.location.origin);
+        }
+    });
 }

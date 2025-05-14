@@ -1,0 +1,1 @@
+chrome.devtools.panels.create('Reactables', 'assets/icon.png', 'panel.html', () => {});

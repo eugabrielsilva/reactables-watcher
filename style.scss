@@ -1,77 +1,98 @@
 $fonts: 'Calibri', 'Ubuntu', 'Segoe UI', 'Tahoma', sans-serif;
 
-#reactables-watcher {
-    position: fixed;
-    right: 0;
-    top: 0;
-    height: 100vh;
+body {
+    padding: 0;
+    margin: 0;
     background-color: #fafafa;
-    width: 300px;
+}
+
+#reactables-watcher {
     font-family: $fonts;
-    overflow-y: auto;
     word-break: break-all;
     font-weight: normal;
     font-size: 16px;
-    display: none;
-    z-index: 2147483647;
     user-select: none;
 
-    &:after {
-        content: '';
-        top: 0;
-        background-color: rgba(128, 128, 128, 0.3);
-        position: absolute;
-        left: 0;
-        width: 2px;
-        height: 100%;
-        cursor: col-resize;
-    }
+    .actions {
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+        gap: 5px;
+        flex-wrap: wrap;
+        background-color: gray;
 
-    &.reactables-watcher-show {
-        display: block;
-    }
+        .btns {
+            display: flex;
+            justify-content: flex-end;
+            gap: 5px;
+            flex-wrap: wrap;
 
-    .reactables-watcher-wrapper {
-        &.reactables-watcher-hovered {
-            .reactables-watcher-title {
-                background-color: gray;
+            button {
+                appearance: none;
+                padding: 3px 7px;
+                border: 1px solid dimgray;
+                outline: none;
                 color: white;
-            }
-        }
-
-        .reactables-watcher-title {
-            background-color: gainsboro;
-            border-bottom: 1px solid gray;
-            padding: 5px;
-            color: dimgray;
-            cursor: pointer;
-
-            &:hover {
-                background-color: #a8a8a8;
-            }
-        }
-
-        .reactables-watcher-list {
-            .json-container {
-                background-color: transparent;
+                border-radius: 7px;
+                cursor: pointer;
                 font-family: $fonts;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                gap: 5px;
+                background: #444;
 
-                .line {
-                    flex-wrap: wrap;
+                &:hover {
+                    opacity: 0.8;
                 }
 
-                .json-key {
-                    margin-right: 0;
+                img {
+                    filter: invert(1);
+                    height: 12px;
+                }
+            }
+        }
+
+        img {
+            height: 20px;
+        }
+    }
+
+    .body {
+        .wrapper {
+            .title {
+                background-color: gainsboro;
+                border-bottom: 1px solid gray;
+                padding: 5px;
+                color: dimgray;
+                cursor: pointer;
+
+                &:hover {
+                    background-color: #a8a8a8;
+                }
+            }
+
+            &.hovered {
+                .title {
+                    background-color: gray;
+                    color: white;
+                }
+            }
+
+            .list {
+                .json-container {
+                    background-color: transparent;
+                    font-family: $fonts;
+
+                    .line {
+                        flex-wrap: wrap;
+                    }
+
+                    .json-key {
+                        margin-right: 0;
+                    }
                 }
             }
         }
     }
-}
-
-.reactables-watcher-focus {
-    position: absolute;
-    z-index: 2147483646;
-    pointer-events: none;
-    background: rgba(126, 183, 253, 0.3);
-    border: 1px solid rgba(126, 183, 253, 0.7);
 }

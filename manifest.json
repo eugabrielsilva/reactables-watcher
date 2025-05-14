@@ -1,20 +1,15 @@
 {
     "name": "Reactables Watcher",
-    "version": "0.0.3",
+    "version": "0.1.0",
     "manifest_version": 3,
     "description": "Glowie Reactables props watcher",
     "homepage_url": "https://github.com/eugabrielsilva/reactables-watcher",
+    "devtools_page": "devtools.html",
     "icons": {
-        "128": "icon.png"
+        "128": "assets/icon.png"
     },
     "background": {
         "service_worker": "background.js"
-    },
-    "action": {
-        "default_title": "Reactables Watcher",
-        "default_icon": {
-            "128": "icon.png"
-        }
     },
     "host_permissions": [
         "*://*/*",
@@ -27,19 +22,14 @@
                 "file:///*"
             ],
             "js": [
-                "inject.js",
-                "jsonview.js"
-            ],
-            "css": [
-                "style.css"
+                "inject.js"
             ]
         }
     ],
     "web_accessible_resources": [
         {
             "resources": [
-                "reactables-watcher.js",
-                "jsonview.js"
+                "reactables-watcher.js"
             ],
             "matches": [
                 "*://*/*",
