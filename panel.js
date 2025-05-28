@@ -13,44 +13,46 @@ port.onMessage.addListener((message) => {
     }
 });
 
+// Get the watcher panel
+const $watcher = $('#reactables-watcher');
+
 // Send refresh all message on click
-document.querySelector('#reactables-watcher .actions #btn-update').addEventListener('click', () => {
+$watcher.find('.actions #btn-update').on('click', function() {
     port.postMessage({command: 'refreshAll'});
     console.log('[reactables-watcher] [SENT] refreshAll');
 });
 
 // Update component list
-document.querySelector('#reactables-watcher .actions #btn-refresh').addEventListener('click', () => {
+$watcher.find('.actions #btn-refresh').on('click', function() {
     port.postMessage({command: 'getData'});
     console.log('[reactables-watcher] [SENT] getData');
 });
 
 // Render the list of components into the panel
 function renderComponentList(components) {
-    const container = document.querySelector('#reactables-watcher .body');
-    container.innerHTML = '';
+    const $container = $watcher.find('.body');
+    $container.empty();
 
     components.forEach((comp) => {
         // Wrapper for a single component entry
-        const wrapper = document.createElement('div');
-        wrapper.className = 'wrapper';
+        const $wrapper = $('<div>', {class: 'wrapper'});
 
         // Title element
-        const title = document.createElement('div');
-        title.className = 'title';
-        title.textContent = comp.name;
-        title.title = `id: ${comp.id}`;
+        const $title = $('<div>', {
+            class: 'title',
+            text: comp.name,
+            title: `id: ${comp.id}`
+        });
 
         // JSON data list
-        const listDiv = document.createElement('div');
-        listDiv.className = 'list';
-        const tree = jsonview.create(comp.data);
-        jsonview.render(tree, listDiv);
-        jsonview.toggleNode(tree);
+        const $listDiv = $('<div>', {class: 'list'});
+        $listDiv.jsonViewer(comp.data, {
+            withLinks: false,
+            bigNumbers: true
+        });
 
         // Assemble and append
-        wrapper.appendChild(title);
-        wrapper.appendChild(listDiv);
-        container.appendChild(wrapper);
+        $wrapper.append($title, $listDiv);
+        $container.append($wrapper);
     });
 }

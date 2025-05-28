@@ -78,21 +78,6 @@ body {
                     color: white;
                 }
             }
-
-            .list {
-                .json-container {
-                    background-color: transparent;
-                    font-family: $fonts;
-
-                    .line {
-                        flex-wrap: wrap;
-                    }
-
-                    .json-key {
-                        margin-right: 0;
-                    }
-                }
-            }
         }
     }
 }
